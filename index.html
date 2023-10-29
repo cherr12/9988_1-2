@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2차 밴드</title>
+    <!-- 부트스트랩 CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .chat-bubble {
+            max-width: 100%;
+            border-radius: 20px;
+            padding: 15px;
+            margin-bottom: 20px;
+            box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.15);
+            animation: slide-in 0.5s forwards; /* "forwards" 키워드가 애니메이션 유지를 위한 핵심 부분입니다 */
+            opacity: 0; /* 처음 상태의 투명도는 0으로, 보이지 않게 설정 */
+        }
+    
+        .chat-bubble-left {
+            background: #e9e9eb;
+        }
+    
+        .chat-bubble-right {
+            background: #0b93f6;
+            color: white;
+        }
+    
+        @keyframes slide-in {
+            0% {
+                transform: translateY(20px);
+                opacity: 0;
+            }
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+    
+        .hidden {
+            display: none;
+        }
+    </style>
+    
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <script>
+        function showChat(id) {
+    var chatContent = document.querySelector(`#chat-${id}`).innerHTML;
+    var modalBody = document.getElementById('chatModalBody');
+
+    // 모달의 내용을 현재 선택된 채팅 내용으로 설정합니다.
+    modalBody.innerHTML = chatContent;
+
+    // 모달을 표시합니다.
+    $('#chatModal').modal('show');
+}
+    </script>
+</head>
+<body>
+    <!-- 뒤로가기 버튼 -->
+    <div class="container mt-3">
+        <a href="file:///Users/hale/Desktop/test%20file/index1/index.html" class="btn btn-light" role="button"><</a> <!-- '메인페이지URL'을 메인 페이지의 URL로 변경해주세요. -->
+        <!-- 혹은 이전 페이지로 돌아가는 기능을 원한다면, 아래 코드를 사용하세요. -->
+        <!-- <button onclick="history.back()" class="btn btn-light"><</button> -->
+    </div>
+
+<div class="container mt-5">
+    <!-- 리스트 항목들 -->
+    <div class="list-group">
+        <a href="#" class="list-group-item list-group-item-action" onclick="showChat(1);">페어링/건강데이터 연동이 안돼요.</a>
+        <a href="#" class="list-group-item list-group-item-action" onclick="showChat(2);">밴드를 분실 했어요.</a>
+        <a href="#" class="list-group-item list-group-item-action" onclick="showChat(3);">시계가 고장났어요.</a>
+        <a href="#" class="list-group-item list-group-item-action" onclick="showChat(4);">스마트밴드에서 알림 꺼놓은 카카오채팅방의 대화 알림이 와요.</a>
+        <a href="#" class="list-group-item list-group-item-action" onclick="showChat(5);">밴드 찾기 중에 앱이 자동으로 꺼져요.<br>앱에서 알림 설정을 했는데 스마트워치에서 알림이 안와요.<br>산소포화도, 심박수 데이터가 앱으로 전송되지 않아요.<br>펌웨어 업데이트(Joinfit, P-Watch)가 진행되지 않아요.</a>
+        <a href="#" class="list-group-item list-group-item-action" onclick="showChat(6);">4주 연속 참여 포인트가 안 들어와요.</a>
+        <a href="#" class="list-group-item list-group-item-action" onclick="showChat(7);">스트랩(시계줄)이 이상해요. 어디서 구매할 수 있나요?</a>
+    </div>
+
+      <!-- 채팅 내용들 -->
+      <div id="chat-1" class="chat-content hidden mt-4">
+        <div class="chat-bubble chat-bubble-left">
+            페어링/건강데이터 연동이 안돼요.<br>
+            (예 1) 밴드에서 페어링 시도하려고 했는데 체크 표시가 안 떠요<br>
+            (예 2) 휴대폰에서 스마트워치 검색이 안돼요.
+        </div>
+        <div class="chat-bubble chat-bubble-right">
+            1. 손목닥터 9988 2.0 앱 삭제<br>
+            2. 블루투스 설정에서 스마트워치 이름 지우기<br>
+            3. 휴대폰, 스마트워치 재부팅<br>
+            4. 앱 재설치 후 재연동<br>
+            * 재연동 시 위치 서비스(GPS)와 블루투스, 와이파이 등이 모두 켜져 있어야 함<br>
+            5. 재연동 후에도 안되면 데이터 연동 센터(02-6949-2000)로 전화하기.
+        </div>
+        <div class="chat-bubble chat-bubble-left">
+            알려준대로 해봤는데 안돼요.
+            </div>
+            <div class="chat-bubble chat-bubble-right">
+                그럴 땐 1차 사업에서 지급된 밴드는 데이터 연동 센터(02-6949-2000)로 전화하라고 하더라구요.<br>
+            </div>
+        </div>
+    </div>
+
+    <div id="chat-2" class="chat-content hidden mt-4">
+        <div class="chat-bubble chat-bubble-left">
+            밴드를 분실했어요.<br> 
+            예전에 분실 포인트 차감된다고 들었는데 분실 신고를 해야할까요? 어떻게 해야 할까요?
+        </div>
+        <div class="chat-bubble chat-bubble-right">
+            2023년 9월 18일 이후에 분실하셨나요?<br>
+        </div>
+        <div class="chat-bubble chat-bubble-left">
+            네. 맞아요.
+        </div>
+        <div class="chat-bubble chat-bubble-right">
+            그렇다면 별도의 분실신고 없이 밴드를 반납하지 않아도 된다고 해요.<br><br>
+            2023년 9월 17일에 1차 시범 사업(온서울 건강온) 서비스의 연장 참여자들의 공식 서비스 기간은 종료되었기 때문에 지급받은 기기는 본인 소유로 별도의 분실 신고를 하지 않아도 된다고 합니다.<br><br>
+            하지만 밴드없이 참여해야 하기 때문에 손목닥터 9988 3차 서비스 연장 참여 시 포인트 적립에 제한이 있을 수 있다고 하네요.
+        </div>
+        <div class="chat-bubble chat-bubble-left">
+            9월 17일 전에 분실했다면 분실신고도 해야 하고 포인트도 차감되는 건가요?
+        </div>
+        <div class="chat-bubble chat-bubble-right">
+            맞습니다.<br>
+            9월 17일까지가 공식적인 서비스기간이기 때문에 서비스 기간 내 분실 또는 파손 된다면 홈페이지에서 분실신고를 해야 한다고 합니다. 또한 분실신고 시 자동으로 5,000포인트가 차감된다고 해요.
+        </div>
+        <div class="chat-bubble chat-bubble-left">
+            분실 후 개인적으로 스마트워치를 구매해서 사용하고 싶은데요.
+        </div>
+        <div class="chat-bubble chat-bubble-right">
+            밴드를 구매하여 사용하고 싶으시군요?<br><br>
+
+            기존 사용하시던 스마트워치를 구매할 수 있는 사이트를 알려드릴게요.<br>
+            https://smartstore.naver.com/sevenelec/products/7907481346 <br><br>
+
+            그런데 만약 갤럭시워치나 애플워치로 참여하고 싶으시다면 참여유형변경이라는 걸 해야해요.<br>
+            유의해야 할 점은 사용중인 휴대폰 제조사와 사용할 자가밴드(애플워치, 갤럭시워치)의 제조사가 다르면 앱과 연동이 안되기 때문에 무용지물이라고 하네요.<br><br>
+
+            참여유형 변경 신청 방법을 알려드릴게요.<br>
+            손목닥터 9988 홈페이지 > 마이데이터 > 신청 내역 조회 > 선택한 스마트 워치 > 참여유형변경 신청(초록색 아이콘) 클릭
+        </div>
+    </div>
+
+    <div id="chat-3" class="chat-content hidden mt-4">
+        <div class="chat-bubble chat-bubble-left">
+            시계가 고장났어요.
+        </div>
+        <div class="chat-bubble chat-bubble-right">
+            상담센터로 전화(1811-9988)하거나 온라인 상담으로 리퍼 가능한지 문의해 보시기 바랍니다.
+        </div>
+    </div>
+
+    <div id="chat-4" class="chat-content hidden mt-4">
+        <div class="chat-bubble chat-bubble-left">
+            스마트밴드에서 알림 꺼놓은 카카오채팅방의 대화 알림이 와요.<br>
+            끌 수 있는 방법이 없을까요?
+        </div>
+        <div class="chat-bubble chat-bubble-right">
+            안드로이드 사용자에게 나타나는 현상이라고 해요.<br><br>
+            
+            이건 앱이나 밴드에서 설정하는 게 아니라 카카오톡 자체 설정에서 바꿔야 한다고 하더라구요?<br><br>
+            
+            카카오톡 우측 하단 더 보기 ➡️ 우측 상단 톱니바퀴 ➡️ 알림 ➡️ 알림 센터에 메시지 표시 ➡️ ‘알림 켠 채팅방만’으로 체크 이렇게 설정해 두면 우리의 스마트워치도 눈치를 챙길 거에요!
+        </div>
+    </div>
+
+    <div id="chat-5" class="chat-content hidden mt-4">
+        <div class="chat-bubble chat-bubble-left">
+            밴드 찾기 중에 앱이 자동으로 꺼져요.<br>
+            앱에서 알림 설정을 했는데 스마트워치에서 알림이 안와요.<br>
+            산소포화도, 심박수 데이터가 앱으로 전송되지 않아요.<br>
+            펌웨어 업데이트(Joinfit, P-Watch)가 진행되지 않아요.
+        </div>
+        <div class="chat-bubble chat-bubble-right">
+            이런 현상들이 나타나면 상담 센터에서는 데이터 연동센터(02-6949-2000) 번호를 안내해 준다고 하더라구요.
+        </div>
+    </div>
+
+    <div id="chat-6" class="chat-content hidden mt-4">
+        <div class="chat-bubble chat-bubble-left">
+            주 3일 연속 참여 포인트는 확인되거든요?<br>
+            그런데 4주 연속 참여 포인트가 안 들어와요.
+        </div>
+        <div class="chat-bubble chat-bubble-right">
+            이게 참 복잡해요 @_@<br><br>
+
+            연장 참여자는 이전에 받았던 주간 챌린지가 이어진다고 하는 아이러니..!<br><br>
+
+            무슨 말이냐 하면요. 만약 연장 참여 중이라면 포인트 내역에서 제일 마지막에 받았던 주의 다음 주가 1주로 시작되어 4주가 되는 주간에 4주 연속 포인트가 지급되고 있다고 해요.<br><br>
+
+            하지만 이 말이 잘 이해되지 않는다면 상담 센터(1811-9988)로 전화하거나 온라인 상담을 남기면 답변해 주시더라구요!<br><br>
+
+            저도 이해하는데 한참 걸렸답니다..
+        </div>
+        <div class="chat-bubble chat-bubble-left">
+            그런데 아무리 계산해 봐도 포인트가 지급 안 된 게 확실해요.
+        </div>
+        <div class="chat-bubble chat-bubble-right">
+            그렇다면 시스템적으로 문제가 있는 게 맞아요.<br><br>
+            
+            상담 센터(1811-9988)로 전화하거나 온라인 상담을 남겨서 못 받은 포인트 지급 신청을 해 주세요.
+        </div>
+    </div>
+
+        <div id="chat-7" class="chat-content hidden mt-4">
+            <div class="chat-bubble chat-bubble-left">
+                스트랩(시계줄)이 이상해요. 어디서 구매할 수 있나요?
+            </div>
+            <div class="chat-bubble chat-bubble-right">
+                스트랩을 구매할 수 있는 사이트를 알려드릴게요.<br>
+                여기서 충전기도 구매할 수 있어요.<br><br>
+
+                JoinFit이나 P-Watch 스트랩을 구매할 수 있는 사이트에요.<br>
+                https://smartstore.naver.com/sevenelec/products/7897251069 <br><br>
+                
+                HL7Pro 스트랩을 구매할 수 있는 사이트에요.<br>
+                https://smartstore.naver.com/sevenelec/products/3808081797 <br><br>
+                
+                하지만 구매사이트 정보 등은 언제든지 바뀔 수 있으니 정확한 정보는 상담 센터(1811-9988)로 전화하거나 온라인 상담을 통해 확인해 봐요.(이 정보는 2023년 10월 마지막 주차까지 업데이트 된 내용이에요.)
+            </div>
+        </div>
+
+<!-- 모달 -->
+<div class="modal fade" id="chatModal" tabindex="-1" aria-labelledby="chatModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg"> <!-- 모달의 크기를 조절하기 위해 modal-lg 클래스를 추가합니다. -->
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="chatModalLabel">채팅 내용</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body" id="chatModalBody">
+          <!-- 여기에 채팅 내용이 들어갑니다. -->
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
